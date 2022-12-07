@@ -1,0 +1,11 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: traveling-api
+        uri: lb://traveling-api
+        predicates:
+         - Path=/api/traveling-mexico/dao/**
+         - Method= GET, POST, PUT, DELETE
+        filters:
+         - StripPrefix=3
