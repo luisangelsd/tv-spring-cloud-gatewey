@@ -1,6 +1,12 @@
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: '*'
+            allowedMethods: '*'
+            allowedHeaders: Content-Type
       routes:
       - id: traveling-api
         uri: lb://traveling-api
