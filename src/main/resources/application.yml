@@ -1,17 +1,11 @@
 spring:
   cloud:
     gateway:
-      globalcors:
-        cors-configurations:
-          '[/**]':
-            allowedOrigins: '*'
-            allowedMethods: '*'
-            allowedHeaders: Content-Type
       routes:
       - id: traveling-api
         uri: lb://traveling-api
         predicates:
-         - Path=/api/traveling-mexico/dao/**
+         - Path=/api/traveling-api/**
          - Method= GET, POST, PUT, DELETE
         filters:
-         - StripPrefix=3
+         - StripPrefix=2
