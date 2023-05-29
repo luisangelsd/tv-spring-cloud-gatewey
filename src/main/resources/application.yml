@@ -5,7 +5,14 @@ spring:
       - id: traveling-api
         uri: lb://traveling-api
         predicates:
-         - Path=/api/traveling-api/**
+         - Path=/api/traveling/**
          - Method= GET, POST, PUT, DELETE
         filters:
          - StripPrefix=2
+      - id: spring-oauth2
+        uri: lb://api/spring-oauth2
+        predicates:
+         - Path=/api/oauth2/**
+         - Method= GET, POST, PUT, DELETE
+        filters:
+         - StripPrefix=2         

@@ -33,6 +33,27 @@ public class SpringCloudGatewayApplication  {
  	CloudBoostrap
  	ConfigClient (Servidor de configuraciones)
  	
+ 	y tambien: https://github.com/jwtk/jjwt#install-jdk-maven
+ 	
+		<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt-api</artifactId>
+	    <version>JJWT_RELEASE_VERSION</version>
+	</dependency>
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt-impl</artifactId>
+	    <version>JJWT_RELEASE_VERSION</version>
+	    <scope>runtime</scope>
+	</dependency>
+	<dependency>
+	    <groupId>io.jsonwebtoken</groupId>
+	    <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+	    <version>JJWT_RELEASE_VERSION</version>
+	    <scope>runtime</scope>
+	</dependency>
+
+ 	
  	1.1) Modificamos la siguiente dependencia
  	
  	antes:
@@ -49,7 +70,24 @@ public class SpringCloudGatewayApplication  {
  
  	1.2 Elimina la siguiente dependecia porque no es compatible
  		 spring-boot-starter-web
- 		 
+ 	
+ 	2) Añade el servicio Oauth2 a la configuracion (properties)
+ 	      - id: spring-oauth2
+        	uri: lb://api/spring-oauth2
+        	predicates:
+         	- Path=/api/oauth2/**
+         	- Method= GET, POST, PUT, DELETE
+        		filters:
+         	- StripPrefix=2  
+         	
+    3) Configuramos Boostrap: 
+    
+    	3.1) Añadimos lo siguiente en el properties:
+    	#spring.config.import=optional:configserver
+    	
+    	3.2) Creamos archivo bootstrap.properties y añadimos
+    	spring.application.name=spring-cloud-gateway
+		spring.cloud.config.uri=http://localhost:8888
  		 
  */
 
