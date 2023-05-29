@@ -34,24 +34,23 @@ public class SpringCloudGatewayApplication  {
  	ConfigClient (Servidor de configuraciones)
  	
  	y tambien: https://github.com/jwtk/jjwt#install-jdk-maven
- 	
 		<dependency>
-	    <groupId>io.jsonwebtoken</groupId>
-	    <artifactId>jjwt-api</artifactId>
-	    <version>JJWT_RELEASE_VERSION</version>
-	</dependency>
-	<dependency>
-	    <groupId>io.jsonwebtoken</groupId>
-	    <artifactId>jjwt-impl</artifactId>
-	    <version>JJWT_RELEASE_VERSION</version>
-	    <scope>runtime</scope>
-	</dependency>
-	<dependency>
-	    <groupId>io.jsonwebtoken</groupId>
-	    <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
-	    <version>JJWT_RELEASE_VERSION</version>
-	    <scope>runtime</scope>
-	</dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-api</artifactId>
+			<version>0.11.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-impl</artifactId>
+			<version>0.11.2</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt-jackson</artifactId>
+			<version>0.11.2</version>
+			<scope>runtime</scope>
+		</dependency>
 
  	
  	1.1) Modificamos la siguiente dependencia
