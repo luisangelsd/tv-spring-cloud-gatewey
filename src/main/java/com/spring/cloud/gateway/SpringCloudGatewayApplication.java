@@ -16,9 +16,11 @@ public class SpringCloudGatewayApplication  {
 
 
 
-/* Configuración:
+/* Configuración sin Oauth2:
  * - Es servidor Spring Cloud Gatawey
  * - Es cliente de Spring Cloud Config Server
  * - Es cliente de Spring Eureka Server
  * - Configura las rutas de acceso a los microservicios
  */
+
+/* Configuracion con Oauth2*/
