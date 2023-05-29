@@ -10,9 +10,9 @@ spring:
         filters:
          - StripPrefix=2
       - id: spring-oauth2
-        uri: lb://api/spring-oauth2
+        uri: lb://spring-oauth2
         predicates:
-         - Path=/api/oauth2/**
+         - Path=/api/security/**
          - Method= GET, POST, PUT, DELETE
         filters:
          - StripPrefix=2         

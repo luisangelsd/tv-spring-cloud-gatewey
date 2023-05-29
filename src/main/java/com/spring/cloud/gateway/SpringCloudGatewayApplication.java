@@ -88,6 +88,12 @@ public class SpringCloudGatewayApplication  {
     	3.2) Creamos archivo bootstrap.properties y añadimos
     	spring.application.name=spring-cloud-gateway
 		spring.cloud.config.uri=http://localhost:8888
+ 	
+ 	4) Configuramos la classe "SpringSecurityConfig"
+ 	
+ 	
+ 		 
+ 		 
  		 
  */
 
