@@ -21,14 +21,26 @@ import io.jsonwebtoken.security.Keys;
 public class AuthenticationManagerJwt implements ReactiveAuthenticationManager {
 
 	
-	//--
+	//--Variable del properties
 	@Value("${config.security.oauth.jwt.key}")
 	private String llaveJwt;
 	
 	@Override
 	public Mono<Authentication> authenticate(Authentication authentication) {
 		
-		return null;
+		return Mono.just(authentication.getCredentials().toString())
+				.map(token->{
+					SecretKey llave=Keys.hmacShaKeyFor(Base64.getEncoder().encode(llaveJwt.getBytes()));
+					return Jwts.parserBuilder().setSigningKey(llave).build().parseClaimsJws(token).getBody();
+				})
+				.map(claims->{
+					String username= claims.get("user_name", String.class);
+					List<String> roles=claims.get("authorities", List.class);
+					Collection<GrantedAuthority> authoritys= roles.stream().map(rol-> new SimpleGrantedAuthority(rol))
+							.collect(Collectors.toList());
+					
+					return new UsernamePasswordAuthenticationToken(username, null, authoritys);
+				});
 	}
 
 	
