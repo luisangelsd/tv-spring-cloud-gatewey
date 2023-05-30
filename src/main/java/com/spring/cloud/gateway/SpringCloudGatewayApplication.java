@@ -91,6 +91,12 @@ public class SpringCloudGatewayApplication  {
  	4) Configuramos la classe "SpringSecurityConfig"
  	
  	
+ 	5) Configuramos la classe "AuthenticationManagerJwt"
+ 	
+ 	
+ 	6) Configura la clase "JwtAuthenticationFilter"
+ 	
+ 	
  		 
  		 
  		 
